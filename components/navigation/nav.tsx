@@ -26,7 +26,7 @@ export default function Nav() {
           <div className="flex gap-2 items-center">
             <Link href={"/pastes"}>
               <Button className="flex gap-2 items-center">
-                <span>Other Pastes</span>
+                <span>Pastes</span>
                 <OpenInNewWindowIcon />
               </Button>
             </Link>

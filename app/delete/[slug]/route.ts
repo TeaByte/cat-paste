@@ -18,7 +18,7 @@ export async function GET(request: NextRequest, { params }: Props) {
     });
   } catch {
     return NextResponse.json({
-      message: "Error while deleting paste.",
+      message: "Already deleted or not found.",
     });
   }
 }

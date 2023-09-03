@@ -1,3 +1,5 @@
+export const revalidate = 1;
+
 import { Share2Icon } from "@radix-ui/react-icons";
 
 import { Button } from "@/components/ui/button";

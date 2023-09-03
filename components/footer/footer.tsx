@@ -6,7 +6,9 @@ export default function Footer() {
       <Separator />
       <ul className="flex py-2 pt-3 px-5 justify-center items-center">
         <li>
-          <strong>Made with 💚 by @TeaByte</strong>
+          <a target="_blank" href="https://github.com/TeaByte/cat-paste">
+            <strong>Made with 💚 by @TeaByte</strong>
+          </a>
         </li>
       </ul>
     </footer>

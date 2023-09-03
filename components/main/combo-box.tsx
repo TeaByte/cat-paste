@@ -51,7 +51,7 @@ export function ComboBox({ value, selectFramework }: ComboBoxProps) {
         <Command>
           <CommandInput placeholder="Search syntax..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
-          <CommandGroup>
+          <CommandGroup className="max-h-[200px] overflow-y-scroll">
             {frameworks.map((framework) => (
               <CommandItem
                 key={framework.value}

@@ -1,6 +1,5 @@
 import { FileTextIcon } from "@radix-ui/react-icons";
 
-import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
 import { Button } from "@/components/ui/button";
@@ -21,7 +20,7 @@ export default async function PastePage({ params }: Props) {
     return (
       <main className="flex flex-col items-center justify-between p-5 line-numbers">
         <div className="w-full">
-          <Link href={"/raw/" + params.slug}>
+          <a target="_blank" href={"/raw/" + params.slug}>
             <Button
               className="w-full md:w-72 flex items-center gap-1"
               aria-expanded={true}
@@ -29,7 +28,7 @@ export default async function PastePage({ params }: Props) {
               <span>Raw</span>
               <FileTextIcon className="w-4 h-4" />
             </Button>
-          </Link>
+          </a>
         </div>
         <Code syntax={paste.syntax} text={paste.text} />
       </main>
