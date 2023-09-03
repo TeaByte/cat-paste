@@ -19,17 +19,17 @@ import {
 } from "@/components/ui/popover";
 import { langs } from "@/lib/utils";
 
-const frameworks = langs.map((lang) => ({
+const syntaxs = langs.map((lang) => ({
   value: lang.toLowerCase(),
   label: lang,
 }));
 
 interface ComboBoxProps {
   value: string;
-  selectFramework: (selectedValue: string) => void;
+  selectSyntax: (selectedValue: string) => void;
 }
 
-export function ComboBox({ value, selectFramework }: ComboBoxProps) {
+export function ComboBox({ value, selectSyntax }: ComboBoxProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -42,7 +42,7 @@ export function ComboBox({ value, selectFramework }: ComboBoxProps) {
           className="w-[200px] justify-between"
         >
           {value
-            ? frameworks.find((framework) => framework.value === value)?.label
+            ? syntaxs.find((syntax) => syntax.value === value)?.label
             : "Syntax"}
           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -50,21 +50,21 @@ export function ComboBox({ value, selectFramework }: ComboBoxProps) {
       <PopoverContent className="w-[200px] p-0" align="start">
         <Command>
           <CommandInput placeholder="Search syntax..." className="h-9" />
-          <CommandEmpty>No framework found.</CommandEmpty>
+          <CommandEmpty>No Syntax found.</CommandEmpty>
           <CommandGroup className="max-h-[200px] overflow-y-scroll">
-            {frameworks.map((framework) => (
+            {syntaxs.map((syntax) => (
               <CommandItem
-                key={framework.value}
+                key={syntax.value}
                 onSelect={(currentValue) => {
-                  selectFramework(currentValue);
+                  selectSyntax(currentValue);
                   setOpen(!open);
                 }}
               >
-                {framework.label}
+                {syntax.label}
                 <CheckIcon
                   className={cn(
                     "ml-auto h-4 w-4",
-                    value === framework.value ? "opacity-100" : "opacity-0"
+                    value === syntax.value ? "opacity-100" : "opacity-0"
                   )}
                 />
               </CommandItem>

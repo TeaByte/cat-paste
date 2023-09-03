@@ -1,7 +1,7 @@
 "use client";
 
 import Prism from "prismjs";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { FileTextIcon, ClipboardCopyIcon } from "@radix-ui/react-icons";
 
@@ -13,12 +13,19 @@ interface Props {
 }
 
 export default function Code({ text, syntax, slug }: Props) {
+  const [copyButtonMessage, setCopyButtonMessage] = useState("Copy");
+
   useEffect(() => {
     const highlight = async () => {
       await Prism.highlightAll();
     };
     highlight();
   }, []);
+
+  function handleCopy() {
+    navigator.clipboard.writeText(text);
+    setCopyButtonMessage("Copied!");
+  }
 
   return (
     <>
@@ -35,9 +42,9 @@ export default function Code({ text, syntax, slug }: Props) {
         <Button
           className="w-full md:w-72 flex items-center gap-1"
           aria-expanded={true}
-          onClick={() => navigator.clipboard.writeText(text)}
+          onClick={handleCopy}
         >
-          <span>Copy </span>
+          <span>{copyButtonMessage}</span>
           <ClipboardCopyIcon className="w-4 h-4" />
         </Button>
       </div>

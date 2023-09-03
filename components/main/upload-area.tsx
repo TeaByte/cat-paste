@@ -18,8 +18,10 @@ export default function ParentComponent() {
 
   const [deleteURL, setDeleteURL] = useState("");
   const [refURL, setRefURL] = useState("");
-  const [copyButtonMessage, setCopyButtonMessage] =
-    useState("⚠️ Copy delete URL");
+
+  const [copyButtonMessage, setCopyButtonMessage] = useState("⚠️ Delete URL");
+  const [copyPasteButtonMessage, setCopyPasteButtonMessage] =
+    useState("📝 Paste URL");
 
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -27,13 +29,20 @@ export default function ParentComponent() {
 
   const router = useRouter();
 
-  const selectFramework = (selectedValue: string) => {
+  const selectSyntax = (selectedValue: string) => {
     setSyntax(selectedValue);
   };
 
   function copyURL() {
     navigator.clipboard.writeText(deleteURL);
     setCopyButtonMessage("Copied!");
+  }
+
+  function copyPasteURL() {
+    navigator.clipboard.writeText(
+      `https://cat-paste.vercel.app/paste/${refURL}`
+    );
+    setCopyPasteButtonMessage("Copied!");
   }
 
   function onRef() {
@@ -112,7 +121,7 @@ export default function ParentComponent() {
   return (
     <div className="w-full">
       <div className="py-2 flex gap-2">
-        <ComboBox value={syntax} selectFramework={selectFramework} />
+        <ComboBox value={syntax} selectSyntax={selectSyntax} />
         {isLoading ? (
           <Button disabled>
             <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
@@ -142,8 +151,11 @@ export default function ParentComponent() {
           <p className="text-center">Your paste pasted successfully. 🎉</p>
           <p className="text-center">Save your delete URL ⚠️</p>
         </div>
-        <div className="flex gap-2">
-          <Button onClick={copyURL}>{copyButtonMessage}</Button>
+        <div className="flex flex-col gap-2">
+          <div className="flex gap-2">
+            <Button onClick={copyURL}>{copyButtonMessage}</Button>
+            <Button onClick={copyPasteURL}>{copyPasteButtonMessage}</Button>
+          </div>
           <Button onClick={onRef}>↗️ Go to paste </Button>
         </div>
       </div>
