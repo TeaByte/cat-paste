@@ -35,14 +35,14 @@ export default function ParentComponent() {
 
   function copyURL() {
     navigator.clipboard.writeText(deleteURL);
-    setCopyButtonMessage("Copied!");
+    setCopyButtonMessage("📋 Delete Copied!");
   }
 
   function copyPasteURL() {
     navigator.clipboard.writeText(
       `https://cat-paste.vercel.app/paste/${refURL}`
     );
-    setCopyPasteButtonMessage("Copied!");
+    setCopyPasteButtonMessage("📝 Paste Copied!");
   }
 
   function onRef() {
