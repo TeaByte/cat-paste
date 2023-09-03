@@ -1,8 +1,4 @@
-import { FileTextIcon } from "@radix-ui/react-icons";
-
 import { prisma } from "@/lib/prisma";
-
-import { Button } from "@/components/ui/button";
 import Code from "@/components/highlight/code";
 
 interface Props {
@@ -19,18 +15,7 @@ export default async function PastePage({ params }: Props) {
   if (paste)
     return (
       <main className="flex flex-col items-center justify-between p-5 line-numbers">
-        <div className="w-full">
-          <a target="_blank" href={"/raw/" + params.slug}>
-            <Button
-              className="w-full md:w-72 flex items-center gap-1"
-              aria-expanded={true}
-            >
-              <span>Raw</span>
-              <FileTextIcon className="w-4 h-4" />
-            </Button>
-          </a>
-        </div>
-        <Code syntax={paste.syntax} text={paste.text} />
+        <Code slug={params.slug} syntax={paste.syntax} text={paste.text} />
       </main>
     );
 

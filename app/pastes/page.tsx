@@ -26,19 +26,22 @@ export default async function Pastes() {
             <Share2Icon className="w-4 h-4" />
           </Button>
         </Link>
-        <section className="pt-6 flex flex-col gap-3">
-          {pastes.map((paste) => (
-            <Link href={`/paste/${paste.id}`} key={paste.id}>
-              <div className="rounded-sm p-4 border-primary border-[1px] flex justify-between hover:scale-105">
-                <span className="truncate max-w-[100px] md:max-w-[200px] capitalize">
-                  {paste.text}
-                </span>
-                <span className="truncate max-w-[100px] md:max-w-[200px] capitalize">
-                  ( {paste.syntax} )
-                </span>
-              </div>
-            </Link>
-          ))}
+        <section className="pt-6 flex flex-col gap-1">
+          <h2>Last 6 Pastes</h2>
+          <div className="flex flex-col gap-3">
+            {pastes.map((paste) => (
+              <Link href={`/paste/${paste.id}`} key={paste.id}>
+                <div className="rounded-sm p-4 border-primary border-[1px] flex justify-between hover:scale-105">
+                  <span className="truncate max-w-[100px] md:max-w-[200px] capitalize">
+                    {paste.text}
+                  </span>
+                  <span className="truncate max-w-[100px] md:max-w-[200px] capitalize">
+                    ( {paste.syntax} )
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </section>
       </div>
     </main>
