@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import Code from "@/components/highlight/code";
+import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 interface Props {
   params: { slug: string };
@@ -19,5 +20,10 @@ export default async function PastePage({ params }: Props) {
       </main>
     );
 
-  return <div></div>;
+  return (
+    <main className="flex flex-col gap-3 items-center justify-between p-16">
+      <ExclamationTriangleIcon className="h-20 w-20" />
+      <p>No Paste Found At This URL</p>
+    </main>
+  );
 }
