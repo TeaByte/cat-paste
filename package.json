@@ -33,6 +33,7 @@
     "next": "13.4.19",
     "next-themes": "^0.2.1",
     "postcss": "8.4.29",
+    "prismjs": "^1.29.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwind-merge": "^1.14.0",
@@ -42,6 +43,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@types/prismjs": "^1.26.0",
     "@types/uuid": "^9.0.3",
     "prisma": "^5.2.0"
   }

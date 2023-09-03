@@ -1,8 +1,10 @@
 import { FileTextIcon } from "@radix-ui/react-icons";
 
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+
+import { Button } from "@/components/ui/button";
+import Code from "@/components/highlight/code";
 
 interface Props {
   params: { slug: string };
@@ -29,9 +31,7 @@ export default async function PastePage({ params }: Props) {
             </Button>
           </Link>
         </div>
-        <pre className="w-full rounded-sm">
-          <code className={"language-" + paste.syntax}>{paste.text}</code>
-        </pre>
+        <Code syntax={paste.syntax} text={paste.text} />
       </main>
     );
 

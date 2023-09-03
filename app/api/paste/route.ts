@@ -13,6 +13,12 @@ export async function POST(request: NextRequest) {
   }
   syntax = syntax.toLowerCase();
 
+  if ((text as string).length > 2000) {
+    return NextResponse.json({
+      message: "Text too long.",
+    });
+  }
+
   try {
     const deleteToken = uuidv4();
     const paste = await prisma.paste.create({

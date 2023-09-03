@@ -7,7 +7,6 @@ import Footer from "@/components/footer/footer";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 
-import Script from "next/script";
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 
@@ -47,7 +46,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className="dark">
-      <Script src="/prism.js"></Script>
       <body className={font.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Nav />
