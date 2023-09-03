@@ -1,5 +1,4 @@
 import "./globals.css";
-import "./prism.css";
 
 import Nav from "@/components/navigation/nav";
 import Ad from "@/components/ads/ad";
