@@ -34,7 +34,6 @@ export default async function Pastes() {
                 <span className="truncate max-w-[100px] md:max-w-[200px] capitalize">
                   ( {paste.syntax} )
                 </span>
-                {paste.delete}
               </div>
             </Link>
           ))}

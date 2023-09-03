@@ -83,7 +83,7 @@ export default function ParentComponent() {
         const token = data.token;
         const id = data.id;
         if (token && id) {
-          setDeleteURL(`http://localhost:3000/delete/${token}`);
+          setDeleteURL(`https://catpaste-roan.vercel.app/delete/${token}`);
           setRefURL(`${id}`);
           toast({
             title: "Your paste pasted successfully.",
